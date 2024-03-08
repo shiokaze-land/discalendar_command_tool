@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src='js/bootstrap.bundle.js'></script>
+		<script src='js/script.js'></script>
+		<link rel='stylesheet' href='css/bootstrap.css'>
+		<link rel='stylesheet' href='css/style.css'>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+			</header>
+			<main>
+				<div class="mb-3">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="mode" id="mode1" value="1" checked>
+						<label class="form-check-label" for="mode1">単イベント追加</label>
+					  </div>
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="mode" id="mode2" value="2">
+						<label class="form-check-label" for="mode2">複数イベント追加</label>
+					  </div>
+				</div>
+				<div class="mb-3">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="1" id="yearCheck" checked>
+						<label class="form-check-label" for="yearCheck">
+						  年を自動判別する
+						</label>
+					  </div>
+				</div>
+				<div id="eventNameArea">
+					<p>イベント名：<input type="text" name="eventName" id="eventName"></p>
+				</div>
+				<div>
+					<p>色：
+					<select name="color" id="color">
+						<option value="白">白</option>
+						<option value="黒">黒</option>
+						<option value="赤">赤</option>
+						<option value="青">青</option>
+						<option value="緑">緑</option>
+						<option value="黄">黄</option>
+						<option value="紫">紫</option>
+						<option value="灰">灰</option>
+						<option value="茶">茶</option>
+						<option value="水色">水色</option>
+					</select>
+					</p>
+				</div>
+				<div><p>日程：<span id="inputExample"></span></p>
+					<textarea rows="8" cols="50" name="schedule" id="schedule" placeholder=""></textarea>
+				</div>
+				<div>
+					<button class="btn btn-outline-primary" name="execBtn" id="execBtn">Go！</button>
+					<button class="btn btn-outline-danger" name="listResetBtn" id="listResetBtn">ListReset</button>
+					<button class="btn btn-outline-secondary" name="inputResetBtn" id="inputResetBtn">InputReset</button>
+				</div>
+				<hr>
+				<div id="resultArea">
+					
+				</div>
+			</main>
+			<footer>
+			</footer>
+		</div>
+
+	</body>
+</html>	
