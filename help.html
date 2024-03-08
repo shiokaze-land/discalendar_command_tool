@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DisCalendar Command Tool</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+		<script src='js/bootstrap.bundle.js'></script>
+		<script src='js/script_one.js'></script>
+		<link rel='stylesheet' href='css/bootstrap.css'>
+		<link rel='stylesheet' href='css/style.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h4>DisCalendar コマンド作成ツール</h4>
+				<div class="description">Discalendarのコマンド作成を楽にしたい目的で作ってみました。</div>
+			</header>
+			<main>
+				<br>
+				<h5>【使い方】</h5>
+				<div>テキストボックスに日時を入力し、コマンド作成ボタンをクリックするとDisCalendarでそのまま流せるコマンドを作成します。コピーボタンからコピーして、そのままDiscordに貼り付けてください。</div>
+				<div>今のところ、日をまたぐ予定は設定できません。1日のみの予定の追加に利用してください。</div>
+				<br>
+				<div>○日時入力設定について</div>
+				<div>・年を自動判別する：チェックがあると、年を直近のものに自動判定するので、年の入力を省略できます。はずす場合は4桁で入力してください。</div>
+				<div>・分を入力しない：チェックがあると、分は00固定になり、入力を省略できます。はずす場合は、分を2桁で入力してください。</div>
+				<br>
+				<div>○単イベント追加：単体の予定を追加するコマンドを作成します。</div>
+				<div>日時+イベント名と書かれたテキストに、日時とイベント名(予定名称)を続けて入力してください。日時は、yyyymmddhhsshhss形式で入力する必要があります。(yyyyとssは設定によって省略可能) 例：2024年1月7日9時30分から12時までの予定を入れたい場合⇒「2024010709301200予定」と記入</div>
+				<br>
+				<div>○複数イベント追加：同じ名称で、複数の予定を追加するコマンドを作成します。</div>
+				<div>オプションなしだと予定の名称はすべて同一になりますが、オプションで番号をつけることもできます。</div>
+				<div>日時+説明と書かれたテキストに、日時と説明文(省略可)を続けて入力してください。改行で複数の日時を設定できます。</div>
+				<div>カレンダーから日付(mmdd)のみ自動入力することができます。この場合、一旦時刻は手入力でお願いします…</div>
+				<div></div>
+				<div></div>
+			</main>
+			<footer>
+			</footer>
+		</div>
+
+	</body>
+</html>	
