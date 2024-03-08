@@ -87,7 +87,7 @@ $(function(){
                 
             }
 
-            place = '-';
+            description = '-';
             
             dataArray.push(eventName); //eventName0
             dataArray.push(year); //year1
@@ -98,7 +98,7 @@ $(function(){
             dataArray.push(end); //end6
             dataArray.push(endMinute); //endMinute7
             dataArray.push(color); //color8
-            dataArray.push(place); //place9
+            dataArray.push(description); //description9
 
             dataArray.push(notify1); //notify1 10
             dataArray.push(notify2); //notify2 11
@@ -148,7 +148,7 @@ function controlOptionBackground(){
 }
 
 function makeCommand(array){
-    //eventName0,year1,month2,day3,start4,startMinute5,end6,endMinute7,color8,place9
+    //eventName0,year1,month2,day3,start4,startMinute5,end6,endMinute7,color8,description9
     let output = '/create' + ' name:' +array[0]+ ' start_year:' + array[1] + ' start_month:'+ array[2] +' start_day:' + array[3] + ' start_hour:' + array[4] + ' start_minute:' + array[5];
     output += ' end_year:' + array[1] + ' end_month:'+ array[2] +' end_day:' + array[3] + ' end_hour:' + array[6] + ' end_minute:' + array[7] + ' color:' + array[8]; 
 

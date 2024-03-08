@@ -106,12 +106,12 @@ $(function(){
                     startMinute = array[i].substr(6,2);
                     end = array[i].substr(8,2);
                     endMinute = array[i].substr(10,2);
-                    place = array[i].substr(12);
+                    description = array[i].substr(12);
                 }else{
                     startMinute = '0';
                     endMinute = '0';
                     end = array[i].substr(6,2);
-                    place = array[i].substr(8);
+                    description = array[i].substr(8);
                 }
                 
             }else{
@@ -124,12 +124,12 @@ $(function(){
                     startMinute = array[i].substr(10,2);
                     end = array[i].substr(12,2);
                     endMinute = array[i].substr(14,2);
-                    place = array[i].substr(16);
+                    description = array[i].substr(16);
                 }else{
                     startMinute = '0';
                     endMinute = '0';
                     end = array[i].substr(10,2);
-                    place = array[i].substr(12);
+                    description = array[i].substr(12);
                 }
                 
             }
@@ -143,7 +143,7 @@ $(function(){
             dataArray.push(end); //end6
             dataArray.push(endMinute); //endMinute7
             dataArray.push(color); //color8
-            dataArray.push(place); //place9
+            dataArray.push(description); //description9
 
             dataArray.push(notify1); //notify1 10
             dataArray.push(notify2); //notify2 11
@@ -195,14 +195,17 @@ function controlOptionBackground(){
 }
 
 function makeCommand(array){
-    //eventName0,year1,month2,day3,start4,startMinute5,end6,endMinute7,color8,place9
+    //eventName0,year1,month2,day3,start4,startMinute5,end6,endMinute7,color8,description9
     let output = '/create' + ' name:' +array[0]+ ' start_year:' + array[1] + ' start_month:'+ array[2] +' start_day:' + array[3] + ' start_hour:' + array[4] + ' start_minute:' + array[5];
     output += ' end_year:' + array[1] + ' end_month:'+ array[2] +' end_day:' + array[3] + ' end_hour:' + array[6] + ' end_minute:' + array[7] + ' color:' + array[8]; 
 
     for (let i = 0; i < 4; ++i) {
         output += notifyJudge(array[10+i],i+1);
     }
-    //output += ' description:' + array[9];
+    
+    if (array[9] !== ''){ 
+        output += ' description:' + array[9];
+    }
 
     return output;
 }
