@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src='js/bootstrap.bundle.js'></script>
+		<script src='js/script_multiple.js'></script>
+		<link rel='stylesheet' href='css/bootstrap.css'>
+		<link rel='stylesheet' href='css/style.css'>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h3>DisCalendar コマンド作成ツール</h3>
+				<div class="description">Discalendarのコマンドを作成するためのサイトです！</div>
+			</header>
+			<main>
+				<div class="my-3">
+					<a class="btn btn-outline-primary" href="index.html" role="button">単イベント追加</a>
+					<a class="btn btn-primary" href="index_multiple.html" role="button">複数イベント追加</a>
+				</div>
+				<div class="multipleEventMode">
+					<h5>【日時入力設定】</h5>
+					<div class="dateinputSettings mb-3 ml-3">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="1" id="yearCheck" checked>
+							<label class="form-check-label" for="yearCheck">
+							  年を自動判別する（チェックがあると、年を直近のものに自動判定します。）
+							</label>
+						  </div>
+						  <div class="form-check">
+							<input class="form-check-input" type="checkbox" value="1" id="minuteCheck">
+							<label class="form-check-label" for="minuteCheck">
+							  分まで入力する（チェックがあると、分を2桁で入力する必要があります。）
+							</label>
+						  </div>
+					</div>
+					<h5>【イベント情報入力】</h5>
+				</div>
+				
+				<div id="eventNameArea">
+					<p>イベント名：<input type="text" name="eventName" id="eventName"></p>
+				</div>
+				<div>
+					<p>色：
+					<select name="color" id="color">
+						<option class="optionWhite" value="白">白</option>
+						<option class="optionBlack" value="黒">黒</option>
+						<option class="optionRed" value="赤">赤</option>
+						<option class="optionBlue" value="青">青</option>
+						<option class="optionGreen" value="緑">緑</option>
+						<option class="optionYellow" value="黄">黄</option>
+						<option class="optionPurple" value="紫">紫</option>
+						<option class="optionGray" value="灰">灰</option>
+						<option class="optionBrown" value="茶">茶</option>
+						<option class="optionSky" value="水色">水色</option>
+					</select>
+					</p>
+				</div>
+
+				<div class="my-2">
+					<button class="btn btn-outline-primary btn-sm mr-3" id="addNotificationButton">＋</button>
+					通知を追加する
+				</div>
+					
+				<div class="addNotificationArea" id="addNotificationArea">
+					<div class="notification1 my-1">通知１：
+						<select name="notificationTime1" id="notificationTime1" class="mr-3">
+							<option value=""></option>
+							<option value="5分前">5分</option>
+							<option value="10分前">10分</option>
+							<option value="15分前">15分</option>
+							<option value="30分前">30分</option>
+							<option value="1時間前">1時間</option>
+							<option value="2時間前">2時間</option>
+							<option value="3時間前">3時間</option>
+							<option value="6時間前">6時間</option>
+							<option value="12時間前">12時間</option>
+							<option value="1日前">1日</option>
+							<option value="2日前">2日</option>
+							<option value="3日前">3日</option>
+							<option value="7日前">7日</option>
+						</select>前
+					</div>
+					<div class="notification2 my-1">通知２：
+						<select name="notificationTime2" id="notificationTime2" class="mr-3">
+							<option value=""></option>
+							<option value="5分前">5分</option>
+							<option value="10分前">10分</option>
+							<option value="15分前">15分</option>
+							<option value="30分前">30分</option>
+							<option value="1時間前">1時間</option>
+							<option value="2時間前">2時間</option>
+							<option value="3時間前">3時間</option>
+							<option value="6時間前">6時間</option>
+							<option value="12時間前">12時間</option>
+							<option value="1日前">1日</option>
+							<option value="2日前">2日</option>
+							<option value="3日前">3日</option>
+							<option value="7日前">7日</option>
+						</select>前
+					</div>
+					<div class="notification3 my-1">通知３：
+						<select name="notificationTime3" id="notificationTime3" class="mr-3">
+							<option value=""></option>
+							<option value="5分前">5分</option>
+							<option value="10分前">10分</option>
+							<option value="15分前">15分</option>
+							<option value="30分前">30分</option>
+							<option value="1時間前">1時間</option>
+							<option value="2時間前">2時間</option>
+							<option value="3時間前">3時間</option>
+							<option value="6時間前">6時間</option>
+							<option value="12時間前">12時間</option>
+							<option value="1日前">1日</option>
+							<option value="2日前">2日</option>
+							<option value="3日前">3日</option>
+							<option value="7日前">7日</option>
+						</select>前
+					</div>
+					<div class="notification4 my-1">通知４：
+						<select name="notificationTime4" id="notificationTime4" class="mr-3">
+							<option value=""></option>
+							<option value="5分前">5分</option>
+							<option value="10分前">10分</option>
+							<option value="15分前">15分</option>
+							<option value="30分前">30分</option>
+							<option value="1時間前">1時間</option>
+							<option value="2時間前">2時間</option>
+							<option value="3時間前">3時間</option>
+							<option value="6時間前">6時間</option>
+							<option value="12時間前">12時間</option>
+							<option value="1日前">1日</option>
+							<option value="2日前">2日</option>
+							<option value="3日前">3日</option>
+							<option value="7日前">7日</option>
+						</select>前
+					</div>
+				</div>
+
+				<div><p>日時＋説明：<span id="inputExample"></span></p>
+					<textarea rows="8" cols="50" name="schedule" id="schedule" placeholder=""></textarea>
+				</div>
+				<div>
+					<button class="btn btn-outline-primary" name="execBtn" id="execBtn">コマンド作成</button>
+					<button class="btn btn-outline-danger" name="listResetBtn" id="listResetBtn">コマンドリストリセット</button>
+					<button class="btn btn-outline-secondary" name="inputResetBtn" id="inputResetBtn">入力リセット</button>
+				</div>
+				<hr>
+				<div id="resultArea">
+					
+				</div>
+			</main>
+			<footer>
+			</footer>
+		</div>
+
+	</body>
+</html>	

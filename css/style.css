@@ -99,6 +99,47 @@
 }
 
 .btnwrapper{
-		text-align: center;
+	text-align: center;
 	margin :0 auto;
+}
+
+.optionWhite{
+	background:white;
+	color:black;
+}
+.optionBlack{
+	background:black;
+	color:white;
+}
+.optionRed{
+	background:red;
+	color:white;
+}
+.optionBlue{
+	background:blue;
+	color:white;
+}
+.optionGreen{
+	background:green;
+	color:white;
+}
+.optionYellow{
+	background:yellow;
+	color:black;
+}
+.optionPurple{
+	background:purple;
+	color:white;
+}
+.optionGray{
+	background:gray;
+	color:white;
+}
+.optionBrown{
+	background:brown;
+	color:white;
+}
+.optionSky{
+	background:skyblue;
+	color:black;
 }
