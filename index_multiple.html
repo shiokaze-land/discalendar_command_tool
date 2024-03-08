@@ -40,30 +40,20 @@
 							</label>
 						  </div>
 					</div>
-					<h5>【イベント情報入力】</h5>
+					<h5>【予定入力】</h5>
 				</div>
 				
 				<div id="eventNameArea" class=" mx-3">
 					<div>
-						<select name="color" id="color">
-							<option class="optionBlack" value="黒">黒</option>
-								<option class="optionWhite" value="白">白</option>
-								<option class="optionRed" value="赤">赤</option>
-								<option class="optionBlue" value="青">青</option>
-								<option class="optionGreen" value="緑">緑</option>
-								<option class="optionYellow" value="黄">黄</option>
-								<option class="optionPurple" value="紫">紫</option>
-								<option class="optionGray" value="灰">灰</option>
-								<option class="optionBrown" value="茶">茶</option>
-								<option class="optionSky" value="水色">水色</option>
-						</select>
-						イベント名：<input type="text" name="eventName" id="eventName">
+						<span class="input-label">イベント名</span>
+						<div><input type="text" name="eventName" id="eventName"></div>
 					</div>
 				</div>
-				<div class="form-check ml-4 mt-2">
+
+				<div class="form-check ml-3 mt-2">
 					<input class="form-check-input" type="checkbox" value="1" id="showNameOption">
 					<label class="form-check-label" for="showNameOption">
-						イベント名オプション
+						<span class="input-label">イベント名オプション</span>
 					</label>
 				</div>
 				<div id="nameOptionArea" class=" ml-4">
@@ -87,14 +77,45 @@
 					</div> -->
 				</div>
 
-				<div class="form-check ml-4 mt-2">
+				<div class="mt-3 mx-3">
+					<div><span class="input-label">色</span></div>
+					<select name="color" id="color">
+						<option class="optionBlack" value="黒">黒</option>
+							<option class="optionWhite" value="白">白</option>
+							<option class="optionRed" value="赤">赤</option>
+							<option class="optionBlue" value="青">青</option>
+							<option class="optionGreen" value="緑">緑</option>
+							<option class="optionYellow" value="黄">黄</option>
+							<option class="optionPurple" value="紫">紫</option>
+							<option class="optionGray" value="灰">灰</option>
+							<option class="optionBrown" value="茶">茶</option>
+							<option class="optionSky" value="水色">水色</option>
+					</select>
+				</div>
+				
+				<div class=" ml-3 mt-3"><span class="input-label">日時＋説明</span></div>
+				<div class="ml-3">	
+					<div id="inputExample" class="text-secondary"></div>
+					<textarea rows="8" cols="30" name="schedule" id="schedule" placeholder=""></textarea>
+					<div class="form-check ml-4 mt-2">
+						<input class="form-check-input" type="checkbox" value="1" id="showCalendar">
+						<label class="form-check-label" for="showCalendar">
+							カレンダーから入力
+						</label>
+					</div>
+					<div id="calendarInputArea" class="ml-5">
+						<div><input id="datepicker" type="hidden">　時刻：<input type="text" class="" id="inputTime"></div>
+					</div>
+					
+				</div>
+				<div class="form-check ml-3 mt-3">
 					<input class="form-check-input" type="checkbox" value="1" id="addNotificationButton">
 					<label class="form-check-label" for="addNotificationButton">
-						通知を追加する
+						<span class="input-label">通知を追加する</span>
 					</label>
 				</div>
 					
-				<div class="addNotificationArea ml-5" id="addNotificationArea">
+				<div class="addNotificationArea ml-4" id="addNotificationArea">
 					<div class="notification1 my-1">通知１：
 						<select name="notificationTime1" id="notificationTime1" class="mr-3">
 							<option value=""></option>
@@ -167,22 +188,6 @@
 							<option value="7日前">7日</option>
 						</select>前
 					</div>
-				</div>
-
-				<div class="mt-2 ml-3">
-					<h5>【日時＋説明】</h5>
-					<div id="inputExample"></div>
-					<textarea rows="8" cols="30" name="schedule" id="schedule" placeholder=""></textarea>
-					<div class="form-check ml-4 mt-2">
-						<input class="form-check-input" type="checkbox" value="1" id="showCalendar">
-						<label class="form-check-label" for="showCalendar">
-							カレンダーから入力
-						</label>
-					</div>
-					<div id="calendarInputArea" class="ml-5">
-						<div><input id="datepicker" type="hidden">　時刻：<input type="text" class="" id="inputTime"></div>
-					</div>
-					
 				</div>
 				<div class="mt-2">
 					<button class="btn btn-outline-primary" name="execBtn" id="execBtn">コマンド作成</button>

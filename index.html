@@ -40,10 +40,16 @@
 							</label>
 						</div>
 					</div>
-					<h5>【日時＋イベント名】<span id="inputExample"></span></h5>
+					<h5>【予定入力】</h5>
+					
 					<!--ここから増やす対象-->
 					<div class="oneEventInputArea mx-3">
-						<div>
+						<div class="mb-2">
+							<span class="input-label">日時＋イベント名</span>
+							<div class="ml-2 text-secondary"><span id="inputExample"></span></div>
+							<input type="text" name="oneEventDateInput" id="oneEventDateInput" placeholder="" class="">
+						</div>
+						<span class="input-label">色</span><br>
 						<div class="oneEventDateInput">
 							<select name="color" id="color" class="">
 								<option class="optionBlack" value="黒">黒</option>
@@ -57,17 +63,17 @@
 								<option class="optionBrown" value="茶">茶</option>
 								<option class="optionSky" value="水色">水色</option>
 							</select>
-							<input type="text" name="oneEventDateInput" id="oneEventDateInput" placeholder="" class="">
+							
 						</div>
-						
-						<div class="form-check ml-4 mt-2">
+
+						<div class="form-check mt-3">
 							<input class="form-check-input" type="checkbox" value="1" id="addNotificationButton">
 							<label class="form-check-label" for="addNotificationButton">
-								通知を追加する
+								<span class="input-label">通知を追加する</span>
 							</label>
 						</div>
 							
-						<div class="addNotificationArea ml-5" id="addNotificationArea">
+						<div class="addNotificationArea ml-4" id="addNotificationArea">
 							<div class="notification1 my-1">通知１：
 								<select name="notificationTime1" id="notificationTime1" class="mr-3">
 									<option value=""></option>

@@ -143,3 +143,7 @@
 	background:skyblue;
 	color:black;
 }
+
+.input-label{
+	font-weight: bold;
+}
