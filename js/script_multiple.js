@@ -102,7 +102,7 @@ $(function(){
                 day = array[i].substr(2,2);
                 start = array[i].substr(4,2);
 
-                if(minuteCheck){
+                if(!minuteCheck){
                     startMinute = array[i].substr(6,2);
                     end = array[i].substr(8,2);
                     endMinute = array[i].substr(10,2);
@@ -120,7 +120,7 @@ $(function(){
                 day = array[i].substr(6,2);
                 start = array[i].substr(8,2);
 
-                if(minuteCheck){
+                if(!minuteCheck){
                     startMinute = array[i].substr(10,2);
                     end = array[i].substr(12,2);
                     endMinute = array[i].substr(14,2);
@@ -178,11 +178,11 @@ function judgeYear(inputMonth){
 function controlExample(){
     let minuteCheck = $('#minuteCheck').prop("checked");
     let yearCheck = $('#yearCheck').prop("checked");
-    if (yearCheck && minuteCheck){
+    if (yearCheck && !minuteCheck){
         $('#inputExample').html("(例：120118002200説明 ・改行で複数入力)");
     }else if(yearCheck){
         $('#inputExample').html("(例：12011822説明 ・改行で複数入力)");
-    }else if(minuteCheck){
+    }else if(!minuteCheck){
         $('#inputExample').html("(例：2023120118002200説明 ・改行で複数入力)");
     }else{
         $('#inputExample').html("(例：202312011822説明 ・改行で複数入力)");

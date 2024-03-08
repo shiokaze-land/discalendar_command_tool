@@ -55,7 +55,7 @@ $(function(){
                 day = array[i].substr(2,2);
                 start = array[i].substr(4,2);
 
-                if(minuteCheck){
+                if(!minuteCheck){
                     startMinute = array[i].substr(6,2);
                     end = array[i].substr(8,2);
                     endMinute = array[i].substr(10,2);
@@ -73,7 +73,7 @@ $(function(){
                 day = array[i].substr(6,2);
                 start = array[i].substr(8,2);
 
-                if(minuteCheck){
+                if(!minuteCheck){
                     startMinute = array[i].substr(10,2);
                     end = array[i].substr(12,2);
                     endMinute = array[i].substr(14,2);
@@ -131,11 +131,11 @@ function judgeYear(inputMonth){
 function controlExample(){
     let minuteCheck = $('#minuteCheck').prop("checked");
     let yearCheck = $('#yearCheck').prop("checked");
-    if (yearCheck && minuteCheck){
+    if (yearCheck && !minuteCheck){
         $('#inputExample').text('(例：120118002200飲み会)');
     }else if(yearCheck){
         $('#inputExample').text('(例：12011822飲み会)');
-    }else if(minuteCheck){
+    }else if(!minuteCheck){
         $('#inputExample').text('(例：2023120118002200飲み会)');
     }else{
         $('#inputExample').text('(例：202312011822飲み会)');
