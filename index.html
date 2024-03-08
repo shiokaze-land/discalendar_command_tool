@@ -5,10 +5,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 		<script src='js/bootstrap.bundle.js'></script>
 		<script src='js/script_one.js'></script>
 		<link rel='stylesheet' href='css/bootstrap.css'>
 		<link rel='stylesheet' href='css/style.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 	</head>
 	<body>
 		<div class="container">
@@ -27,24 +30,24 @@
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value="1" id="yearCheck" checked>
 							<label class="form-check-label" for="yearCheck">
-							  年を自動判別する（チェックがあると、年を直近のものに自動判定します。）
+								年を自動判別する（チェックがあると、年を直近のものに自動判定します。ない場合は4桁で入力してください。）
 							</label>
-						  </div>
-						  <div class="form-check">
+						</div>
+						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value="1" id="minuteCheck">
 							<label class="form-check-label" for="minuteCheck">
-							  分まで入力する（チェックがあると、分を2桁で入力する必要があります。）
+								分まで入力する（チェックがあると、分を2桁で入力する必要があります。ない場合は00分固定です。）
 							</label>
-						  </div>
+						</div>
 					</div>
 					<h5>【イベント情報入力】</h5>
 					<!--ここから増やす対象-->
-					<div class="oneEventInputArea m-4">
+					<div class="oneEventInputArea mx-3">
 						<div>
-						<p class="oneEventDateInput">
-							<select name="color" id="color" class="mr-3">
-								<option class="optionWhite" value="白">白</option>
+						<div class="oneEventDateInput">
+							<select name="color" id="color" class="">
 								<option class="optionBlack" value="黒">黒</option>
+								<option class="optionWhite" value="白">白</option>
 								<option class="optionRed" value="赤">赤</option>
 								<option class="optionBlue" value="青">青</option>
 								<option class="optionGreen" value="緑">緑</option>
@@ -53,17 +56,19 @@
 								<option class="optionGray" value="灰">灰</option>
 								<option class="optionBrown" value="茶">茶</option>
 								<option class="optionSky" value="水色">水色</option>
-							</select>日時＋イベント名：
-							<input type="text" name="oneEventDateInput" id="oneEventDateInput" placeholder="">
+							</select>　日時＋イベント名：
+							<input type="text" name="oneEventDateInput" id="oneEventDateInput" placeholder="" class="">
 							<span id="inputExample"></span>
-						</p>
+						</div>
 						
-						<div class="my-2">
-							<button class="btn btn-outline-primary btn-sm mr-3" id="addNotificationButton">＋</button>
-							通知を追加する
+						<div class="form-check ml-4 mt-2">
+							<input class="form-check-input" type="checkbox" value="1" id="addNotificationButton">
+							<label class="form-check-label" for="addNotificationButton">
+								通知を追加する
+							</label>
 						</div>
 							
-						<div class="addNotificationArea" id="addNotificationArea">
+						<div class="addNotificationArea ml-5" id="addNotificationArea">
 							<div class="notification1 my-1">通知１：
 								<select name="notificationTime1" id="notificationTime1" class="mr-3">
 									<option value=""></option>
@@ -140,7 +145,7 @@
 					</div>
 				</div>
 
-				<div>
+				<div class="mt-2">
 					<button class="btn btn-outline-primary" name="execBtn" id="execBtn">コマンド作成</button>
 					<button class="btn btn-outline-secondary" name="inputResetBtn" id="inputResetBtn">入力リセット</button>
 				</div>

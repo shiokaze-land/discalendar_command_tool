@@ -22,6 +22,35 @@ $(function(){
         $('#addNotificationArea').toggle();
     });
 
+    $('#calendarInputArea').hide();
+    $('#showCalendar').click(function(){
+        $('#calendarInputArea').toggle();
+    });
+
+    $('#nameOptionArea').hide();
+    $('#showNameOption').click(function(){
+        $('#nameOptionArea').toggle();
+    });
+
+    $('#color').addClass("optionBlack");
+    $('#color').change( function() {
+        controlOptionBackground();
+    });
+
+    $('#datepicker').datepicker({
+        dateFormat: "mmdd",
+        showOn: "button", // inputは非表示にしているのでボタンを表示させる
+        buttonText: "カレンダー表示",
+        onSelect: function (dateText, inst) {
+            let time = $('#inputTime').val();
+            $('#schedule').append(dateText + time + "\n");
+            inst.inline = true;
+        },
+        onClose: function (dateText, inst) {
+            inst.inline = false;
+        }
+    });
+
     $('#execBtn').click(function(){
         let eventName = $('#eventName').val();
         const color = $('#color').val();
@@ -31,6 +60,10 @@ $(function(){
     
         let yearCheck = $('#yearCheck').prop("checked");
         let minuteCheck = $('#minuteCheck').prop("checked");
+
+        let orderNo = $('#orderNo').prop("checked");
+        let lastNo = $('#lastNo').prop("checked");
+        //let LastDate = $('#LastDate').prop("checked");
 
         let notify1 = $('#notificationTime1').val();
         let notify2 = $('#notificationTime2').val();
@@ -46,6 +79,21 @@ $(function(){
         let endMinute = '';
 
         for (let i = 0; i < array.length; ++i) {
+
+            let eventName = $('#eventName').val();
+            let addNum = i+1;
+            if(orderNo){
+                eventName = '第' + String(addNum) + '回' + eventName;
+            }
+    
+            if(lastNo){
+                eventName = eventName + String(addNum);
+            }
+    
+            // if(LastDate){
+            //     eventName = eventName + month + day;
+            // }
+
             let dataArray = [];
             if(yearCheck){
                 //年を自動判別する
@@ -105,7 +153,7 @@ $(function(){
             console.log(dataArray);
             let output = makeCommand(dataArray);
             
-            $('#resultArea').html('<p id="result' + i +'">'+ output +'</p><button class="btn btn-primary resultBtn" id="resultBtn' + i + '" value="' + i + '" >コピーする</button><span id="copyResult' + i + '"></span>');
+            $('#resultArea').append('<div id="result' + i +'">'+ output +'</div><button class="btn btn-primary resultBtn mb-3" id="resultBtn' + i + '" value="' + i + '" >コピーする</button><span id="copyResult' + i + '"></span>');
         }
     
     });
@@ -131,14 +179,19 @@ function controlExample(){
     let minuteCheck = $('#minuteCheck').prop("checked");
     let yearCheck = $('#yearCheck').prop("checked");
     if (yearCheck && minuteCheck){
-        $('#inputExample').text('(例：120118002200飲み会)');
+        $('#inputExample').html("(例：120118002200説明 ・改行で複数入力)");
     }else if(yearCheck){
-        $('#inputExample').text('(例：12011822飲み会)');
+        $('#inputExample').html("(例：12011822説明 ・改行で複数入力)");
     }else if(minuteCheck){
-        $('#inputExample').text('(例：2023120118002200飲み会)');
+        $('#inputExample').html("(例：2023120118002200説明 ・改行で複数入力)");
     }else{
-        $('#inputExample').text('(例：202312011822飲み会)');
+        $('#inputExample').html("(例：202312011822説明 ・改行で複数入力)");
     }
+}
+
+function controlOptionBackground(){
+    let selectedClass = $('[name=color] option:selected').attr("class");
+    $('#color').attr('class', selectedClass);
 }
 
 function makeCommand(array){
@@ -149,7 +202,7 @@ function makeCommand(array){
     for (let i = 0; i < 4; ++i) {
         output += notifyJudge(array[10+i],i+1);
     }
-    output += ' description:' + array[9];
+    //output += ' description:' + array[9];
 
     return output;
 }

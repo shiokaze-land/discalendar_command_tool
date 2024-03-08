@@ -18,6 +18,11 @@ $(function(){
         $('#addNotificationArea').toggle();
     });
 
+    $('#color').addClass("optionBlack");
+    $('#color').change( function() {
+        controlOptionBackground();
+    });
+
     $('#execBtn').click(function(){
         const color = $('#color').val();
         let eventName = '';
@@ -137,6 +142,11 @@ function controlExample(){
     }
 }
 
+function controlOptionBackground(){
+    let selectedClass = $('[name=color] option:selected').attr("class");
+    $('#color').attr('class', selectedClass);
+}
+
 function makeCommand(array){
     //eventName0,year1,month2,day3,start4,startMinute5,end6,endMinute7,color8,place9
     let output = '/create' + ' name:' +array[0]+ ' start_year:' + array[1] + ' start_month:'+ array[2] +' start_day:' + array[3] + ' start_hour:' + array[4] + ' start_minute:' + array[5];
@@ -145,7 +155,7 @@ function makeCommand(array){
     for (let i = 0; i < 4; ++i) {
         output += notifyJudge(array[10+i],i+1);
     }
-    output += ' description:' + array[9];
+    //output += ' description:' + array[9];
 
     return output;
 }
