@@ -43,7 +43,8 @@ $(function(){
         buttonText: "カレンダー表示",
         onSelect: function (dateText, inst) {
             let time = $('#inputTime').val();
-            $('#schedule').append(dateText + time + "\n");
+            //$('#schedule').append(dateText + time + "\n");
+            $('#schedule').append(dateText + "\n");
             inst.inline = true;
         },
         onClose: function (dateText, inst) {
