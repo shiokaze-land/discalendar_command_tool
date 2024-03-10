@@ -43,8 +43,8 @@ $(function(){
         buttonText: "カレンダー表示",
         onSelect: function (dateText, inst) {
             let time = $('#inputTime').val();
-            //$('#schedule').append(dateText + time + "\n");
-            $('#schedule').append(dateText + "\n");
+            $('#schedule').append(dateText + time + "\n");
+           // $('#schedule').append(dateText + "\n");
             inst.inline = true;
         },
         onClose: function (dateText, inst) {
@@ -53,110 +53,124 @@ $(function(){
     });
 
     $('#execBtn').click(function(){
-        let eventName = $('#eventName').val();
-        const color = $('#color').val();
-        
-        let inputText = $('#schedule').val();
-        let array = textSplit(inputText);
-    
-        let yearCheck = $('#yearCheck').prop("checked");
-        let minuteCheck = $('#minuteCheck').prop("checked");
-
-        let orderNo = $('#orderNo').prop("checked");
-        let lastNo = $('#lastNo').prop("checked");
-        //let LastDate = $('#LastDate').prop("checked");
-
-        let notify1 = $('#notificationTime1').val();
-        let notify2 = $('#notificationTime2').val();
-        let notify3 = $('#notificationTime3').val();
-        let notify4 = $('#notificationTime4').val();
-
-        let year = '';
-        let month = '';
-        let day = '';
-        let start = '';
-        let end = '';
-        let startMinute = '';
-        let endMinute = '';
-
-        for (let i = 0; i < array.length; ++i) {
-
+        try{
             let eventName = $('#eventName').val();
-            let addNum = i+1;
-            if(orderNo){
-                eventName = '第' + String(addNum) + '回' + eventName;
+            if (eventName === ''){
+                throw('イベント名を入力してください！');
             }
-    
-            if(lastNo){
-                eventName = eventName + String(addNum);
+
+            const color = $('#color').val();
+        
+            let inputText = $('#schedule').val();
+            if (inputText === ''){
+                throw('日時を入力してください！');
             }
+            let array = textSplit(inputText);
+        
+            let yearCheck = $('#yearCheck').prop("checked");
+            let minuteCheck = $('#minuteCheck').prop("checked");
     
-            // if(LastDate){
-            //     eventName = eventName + month + day;
-            // }
-
-            let dataArray = [];
-            if(yearCheck){
-                //年を自動判別する
-                month = array[i].substr(0,2);
-                year = judgeYear(month);
-                day = array[i].substr(2,2);
-                start = array[i].substr(4,2);
-
-                if(!minuteCheck){
-                    startMinute = array[i].substr(6,2);
-                    end = array[i].substr(8,2);
-                    endMinute = array[i].substr(10,2);
-                    description = array[i].substr(12);
+            let orderNo = $('#orderNo').prop("checked");
+            let lastNo = $('#lastNo').prop("checked");
+            //let LastDate = $('#LastDate').prop("checked");
+    
+            let notify1 = $('#notificationTime1').val();
+            let notify2 = $('#notificationTime2').val();
+            let notify3 = $('#notificationTime3').val();
+            let notify4 = $('#notificationTime4').val();
+    
+            let year = '';
+            let month = '';
+            let day = '';
+            let start = '';
+            let end = '';
+            let startMinute = '';
+            let endMinute = '';
+    
+            for (let i = 0; i < array.length; ++i) {
+    
+                let eventName = $('#eventName').val();
+                let addNum = i+1;
+                if(orderNo){
+                    eventName = '第' + String(addNum) + '回' + eventName;
+                }
+        
+                if(lastNo){
+                    eventName = eventName + String(addNum);
+                }
+        
+                // if(LastDate){
+                //     eventName = eventName + month + day;
+                // }
+    
+                let dataArray = [];
+                if(yearCheck){
+                    //年を自動判別する
+                    month = array[i].substr(0,2);
+                    year = judgeYear(month);
+                    day = array[i].substr(2,2);
+                    start = array[i].substr(4,2);
+    
+                    if(!minuteCheck){
+                        startMinute = array[i].substr(6,2);
+                        end = array[i].substr(8,2);
+                        endMinute = array[i].substr(10,2);
+                        description = array[i].substr(12);
+                    }else{
+                        startMinute = '0';
+                        endMinute = '0';
+                        end = array[i].substr(6,2);
+                        description = array[i].substr(8);
+                    }
+                    
                 }else{
-                    startMinute = '0';
-                    endMinute = '0';
-                    end = array[i].substr(6,2);
-                    description = array[i].substr(8);
+                    year = array[i].substr(0,4);
+                    month = array[i].substr(4,2);
+                    day = array[i].substr(6,2);
+                    start = array[i].substr(8,2);
+    
+                    if(!minuteCheck){
+                        startMinute = array[i].substr(10,2);
+                        end = array[i].substr(12,2);
+                        endMinute = array[i].substr(14,2);
+                        description = array[i].substr(16);
+                    }else{
+                        startMinute = '0';
+                        endMinute = '0';
+                        end = array[i].substr(10,2);
+                        description = array[i].substr(12);
+                    }
+                    
                 }
                 
-            }else{
-                year = array[i].substr(0,4);
-                month = array[i].substr(4,2);
-                day = array[i].substr(6,2);
-                start = array[i].substr(8,2);
-
-                if(!minuteCheck){
-                    startMinute = array[i].substr(10,2);
-                    end = array[i].substr(12,2);
-                    endMinute = array[i].substr(14,2);
-                    description = array[i].substr(16);
-                }else{
-                    startMinute = '0';
-                    endMinute = '0';
-                    end = array[i].substr(10,2);
-                    description = array[i].substr(12);
-                }
+                dataArray.push(eventName); //eventName0
+                dataArray.push(year); //year1
+                dataArray.push(month); //month2
+                dataArray.push(day); //day3
+                dataArray.push(start); //start4
+                dataArray.push(startMinute); //startMinute5
+                dataArray.push(end); //end6
+                dataArray.push(endMinute); //endMinute7
+                dataArray.push(color); //color8
+                dataArray.push(description); //description9
+    
+                dataArray.push(notify1); //notify1 10
+                dataArray.push(notify2); //notify2 11
+                dataArray.push(notify3); //notify3 12
+                dataArray.push(notify4); //notify4 13
+    
+                console.log(dataArray);
+                let output = makeCommand(dataArray);
                 
+                if (month !== ''){
+                    $('#resultArea').append('<div id="result' + i +'">'+ output +'</div><button class="btn btn-primary resultBtn mb-3" id="resultBtn' + i + '" value="' + i + '" >コピーする</button><span id="copyResult' + i + '"></span>');
+                }
             }
-            
-            dataArray.push(eventName); //eventName0
-            dataArray.push(year); //year1
-            dataArray.push(month); //month2
-            dataArray.push(day); //day3
-            dataArray.push(start); //start4
-            dataArray.push(startMinute); //startMinute5
-            dataArray.push(end); //end6
-            dataArray.push(endMinute); //endMinute7
-            dataArray.push(color); //color8
-            dataArray.push(description); //description9
 
-            dataArray.push(notify1); //notify1 10
-            dataArray.push(notify2); //notify2 11
-            dataArray.push(notify3); //notify3 12
-            dataArray.push(notify4); //notify4 13
-
-            console.log(dataArray);
-            let output = makeCommand(dataArray);
-            
-            $('#resultArea').append('<div id="result' + i +'">'+ output +'</div><button class="btn btn-primary resultBtn mb-3" id="resultBtn' + i + '" value="' + i + '" >コピーする</button><span id="copyResult' + i + '"></span>');
+        } catch (e){
+            alert(e);
         }
-    
+        
     });
 
 
