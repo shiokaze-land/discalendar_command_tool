@@ -27,7 +27,7 @@ $(function(){
         const color = $('#color').val();
         let eventName = '';
         
-        let inputText = $('#oneEventDateInput').val();
+        let inputText = escapeHTML($('#oneEventDateInput').val());
         let array = textSplit(inputText);
     
         let yearCheck = $('#yearCheck').prop("checked");
@@ -170,6 +170,14 @@ function notifyJudge(str, num){
     }else{
         return ' notify_' + num + ':' + str;
     }
+}
+
+function escapeHTML(string){
+    return string.replace(/&/g, '&lt;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, "&#x27;");
 }
 
 $(document).on("click",".resultBtn",function(){

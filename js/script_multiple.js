@@ -43,8 +43,8 @@ $(function(){
         buttonText: "カレンダー表示",
         onSelect: function (dateText, inst) {
             let time = $('#inputTime').val();
-            $('#schedule').append(dateText + time + "\n");
-           // $('#schedule').append(dateText + "\n");
+            let inputText = $('#schedule').val();
+            $('#schedule').val(inputText + dateText + time + "\n");
             inst.inline = true;
         },
         onClose: function (dateText, inst) {
@@ -54,14 +54,14 @@ $(function(){
 
     $('#execBtn').click(function(){
         try{
-            let eventName = $('#eventName').val();
+            let eventName = escapeHTML($('#eventName').val());
             if (eventName === ''){
                 throw('イベント名を入力してください！');
             }
 
             const color = $('#color').val();
         
-            let inputText = $('#schedule').val();
+            let inputText = escapeHTML($('#schedule').val());
             if (inputText === ''){
                 throw('日時を入力してください！');
             }
@@ -235,6 +235,14 @@ function notifyJudge(str, num){
     }else{
         return ' notify_' + num + ':' + str;
     }
+}
+
+function escapeHTML(string){
+    return string.replace(/&/g, '&lt;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, "&#x27;");
 }
 
 $(document).on("click",".resultBtn",function(){
