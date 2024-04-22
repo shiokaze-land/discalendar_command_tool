@@ -105,7 +105,6 @@ $(function(){
             dataArray.push(notify3); //notify3 12
             dataArray.push(notify4); //notify4 13
 
-            console.log(dataArray);
             let output = makeCommand(dataArray);
             
             $('#resultArea').html('<p id="result' + i +'">'+ output +'</p><button class="btn btn-primary resultBtn" id="resultBtn' + i + '" value="' + i + '" >コピーする</button><span id="copyResult' + i + '"></span>');

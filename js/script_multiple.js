@@ -159,7 +159,6 @@ $(function(){
                 dataArray.push(notify3); //notify3 12
                 dataArray.push(notify4); //notify4 13
     
-                console.log(dataArray);
                 let output = makeCommand(dataArray);
                 
                 if (month !== ''){
